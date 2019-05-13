@@ -1,0 +1,35 @@
+      *****************************************************************
+      *  CA File Master Plus for IMS Extract Layout
+      *****************************************************************
+       01  $STUDENT-EXTRACT-RECORD.
+           02  $STUDENT-EXT-CNTL-INFO.
+               05  $STUDENT-ACTION-CODE           PIC  X(01).
+               05  FILLER                         PIC  X(01).
+               05  $STUDENT-SEGMENT-NAME          PIC  X(08).
+               05  $STUDENT-DBDNAME               PIC  X(08).
+               05  FILLER                         PIC  X(02).
+               05  $STUDENT-FORMAT-CKEY-LEN       PIC  9(09) COMP.
+               05  $STUDENT-SEG-LEN               PIC  9(09) COMP.
+               05  $STUDENT-VAR-AREA-LEN          PIC  9(09) COMP.
+               05  $STUDENT-ROOT-LOCATION         PIC  X(08).
+           02  $STUDENT-FORMATTED-CKEY.
+               05  $STUDENT-LEVEL-1-SEG-NUM       PIC  9(03).
+               05  $STUDENT-LEVEL-1-STUDENT-KEY   PIC  X(05).
+               05  FILLER                         PIC  X(36).
+      *****************************************************************
+      *  Customer Segment Layout
+      *****************************************************************
+           02  STUDENT-SEGMENT.
+               05  STUDENT-ID                     PIC  9(05).
+               05  STUDENT-NAME                   PIC  X(30).
+               05  STUDENT-CURR-GRADE-LEVEL       PIC  9(02).
+               05  STUDENT-CURR-SEMESTER          PIC  9(01).
+               05  STUDENT-ADDR.
+                   10  STUDENT-STREET             PIC  X(25).
+                   10  STUDENT-CITY               PIC  X(15).
+                   10  STUDENT-STATE              PIC  X(02).
+                   10  STUDENT-ZIP-CODE           PIC  X(05).
+               05  STUDENT-HOME-PHONE             PIC  X(12).
+               05  STUDENT-EMERGENCY-CONTACT      OCCURS 3 TIMES.
+                   10  STUDENT-CONTACT-PERSON     PIC  X(30).
+                   10  STUDENT-CONTACT-PHONE      PIC  X(20).

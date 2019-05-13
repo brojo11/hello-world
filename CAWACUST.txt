@@ -1,0 +1,28 @@
+       01  CUSTOMER-RECORD.                                             00010000
+           03  CUST-REC-TYPE           PIC X.                           00020000
+               88 CUST-REC             VALUE '1'.                       00020100
+               88 CUST-CONTROL         VALUE '2'.                       00020200
+           03  CUST-ID                 PIC X(7).                        00020300
+           03  CUST-NAME               PIC X(15).                       00020400
+           03  CUST-STREET             PIC X(18).                       00020500
+           03  CUST-CITY               PIC X(12).                       00020600
+           03  CUST-STATE              PIC X(02).                       00020700
+           03  CUST-ZIP-CODE           PIC X(10).                       00020800
+           03  CUST-ZIP-CODE2 REDEFINES CUST-ZIP-CODE.                  00020900
+               05   CUST-ZIP           PIC 9(5).                        00021000
+               05   FILLER             PIC X.                           00021100
+               05   CUST-ZIP-PLUS      PIC 9(4).                        00022000
+           03  CUST-MNTHLY-PYMNTS      PIC S9(3)V99 COMP-3              00023000
+                                       OCCURS 12 TIMES.                 00024000
+           03  CUST-TOTAL-MNTHLY-PYMNTS                                 00025400
+                                       PIC S9(5)V99 COMP-3.             00025500
+           03  FILLER                  PIC X(55).                       00026000
+       01  CUSTOMER-CONTROL.                                            00030000
+           03  CUST-REC-TYPE           PIC X.                           00040000
+               88 CUST-CONTROL         VALUE '2'.                       00060000
+           03  CUSTS-CNTRL-KEY         PIC X(7).                        00061000
+           03  CUSTS-TOT-CUSTOMERS     PIC S999.                        00070000
+           03  CUSTS-MNTHLY-PYMNTS     PIC S9(8)V99 COMP-3              00071000
+                                       OCCURS 12 TIMES.                 00072000
+           03  CUSTS-TOT-MNTHLY-PYMNTS PIC S9(9)V99 COMP-3.             00080000
+           03  FILLER                  PIC X(71).                       00090000
